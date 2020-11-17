@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 欢迎界面 -->
+    <div class="Div_head">
+        <p class="p1">欢迎来到我的个人网站</p>
+        <span></span>
+    </div>
+    <div class="Div_head2">
+        <div class="Clock_1">
+            <div class="Clock_2">
+                <p id="time">12:12:12 AM</p>
+            </div>
+        </div>
+    </div>
+    <!-- js脚本时间控制 -->
+    <script>
+        function up()
+        {
+            var Ctime = document.querySelector("#time");
+        var date = new Date();
+        var h = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        var Daytype = "AM";
+        // 更改时间
+        if(h>12)
+        {
+            h = h-12;
+            Daytype = "PM";
+        } 
+        if(h<10)
+        {
+            h = "0" + h;
+        }
+        if(min<10)
+        {
+            min = "0"+min;
+        }
+        if(sec<10)
+        {
+            sec="0"+sec;
+        }
+        // 显示时间
+        Ctime.textContent = h+ ":" + min + ":" + sec+ " " + Daytype;
+        }
+        // 定时器设计
+        setInterval(() => {
+            up();
+        }, 100);
+    </script>
+</body>
+</html>
